@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_011435) do
+ActiveRecord::Schema.define(version: 2020_12_31_024732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,35 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.date "end"
   end
 
+  create_table "covdecs", force: :cascade do |t|
+    t.string "mname"
+    t.string "mic"
+    t.string "mph"
+    t.string "moffc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fname"
+    t.string "fic"
+    t.string "fph"
+    t.string "foffc"
+    t.string "raddr"
+    t.string "vaddr"
+    t.string "mnph"
+    t.string "hph"
+    t.integer "kid_id"
+    t.integer "taska_id"
+  end
+
+  create_table "dcovs", force: :cascade do |t|
+    t.float "temp"
+    t.text "cond"
+    t.integer "kid_id"
+    t.integer "taska_id"
+    t.text "upd_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.string "name"
     t.decimal "cost"
@@ -221,6 +250,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.string "ph_2"
     t.string "sph_1"
     t.string "sph_2"
+    t.string "mic"
+    t.string "fic"
+    t.string "fulladd"
   end
 
   create_table "kidtsks", force: :cascade do |t|
@@ -230,13 +262,34 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "okids", force: :cascade do |t|
-    t.string "name"
-    t.string "ic"
-    t.integer "college_id"
-    t.boolean "stat"
+  create_table "lgbks", force: :cascade do |t|
+    t.text "cin"
+    t.text "cout"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kid_id"
+    t.string "tdo"
+    t.string "sih"
+    t.string "sbb"
+    t.string "mand"
+    t.text "tool"
+    t.text "medc"
+    t.string "phyc"
+    t.integer "taska_id"
+    t.text "susu"
+    t.string "susudc"
+    t.text "mkn"
+    t.text "ctm"
+    t.text "aktl"
+    t.text "aktp"
+    t.text "lmpn"
+    t.text "gigi"
+    t.text "mnd"
+    t.text "tdur"
+    t.string "aktb"
+    t.string "othdc"
+    t.text "tchid"
+    t.text "temp"
   end
 
   create_table "otkids", force: :cascade do |t|
@@ -330,6 +383,10 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.string "mtd"
     t.string "cltid"
     t.boolean "s2ph"
+    t.string "bill_id2"
+    t.boolean "fin"
+    t.boolean "exs"
+    t.string "discdx"
   end
 
   create_table "payslips", force: :cascade do |t|
@@ -471,6 +528,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.float "cred"
     t.text "hiscred"
     t.float "rato"
+    t.integer "bldt"
+    t.integer "remdt"
+    t.integer "psldt"
     t.index ["subdomain"], name: "index_taskas_on_subdomain", unique: true
   end
 
@@ -480,13 +540,6 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "tp"
-  end
-
-  create_table "tchdetail_okids", force: :cascade do |t|
-    t.integer "tchdetail_id"
-    t.integer "okid_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tchdetails", force: :cascade do |t|
@@ -589,6 +642,7 @@ ActiveRecord::Schema.define(version: 2020_02_22_011435) do
     t.integer "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "stp"
   end
 
   create_table "tsklvs", force: :cascade do |t|
