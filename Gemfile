@@ -5,15 +5,16 @@ ruby '2.5.1'
 
 
 gem 'rails', '~> 5.2.1'
-gem 'sass'
+gem 'sass', '~> 3.5.2'
 gem 'roo'
 gem 'devise'
 
 ## for styling
 
-gem 'twitter-bootstrap-rails'
+#gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.4.1'
+gem 'bootstrap'
+#gem 'sassc-rails', '~> 2.0.0'
 gem 'font-awesome-sass'
 # gem 'popper_js', '~> 1.14.7'
 
@@ -90,7 +91,7 @@ group :production do
   #gem 'pg', '~>0.11' 
   #gem 'sqlite3'
   #gem 'wkhtmltopdf-heroku'
-  gem 'wkhtmltopdf-heroku', '2.12.4'
+  gem 'wkhtmltopdf-heroku', '2.12.5.0'
 end
 
 

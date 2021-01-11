@@ -1,11 +1,11 @@
 #!/bin/bash
-git checkout dev
+git checkout devd
 git add -A
 git commit -m "tsk"
 git push
 
 git checkout staging
-git merge dev
+git merge devd
 git push
 
 git checkout t-prod
@@ -13,6 +13,6 @@ git merge staging
 git push
 
 git diff HEAD staging
-git diff HEAD dev
-git checkout dev
+git diff HEAD devd
+git checkout devd
 
